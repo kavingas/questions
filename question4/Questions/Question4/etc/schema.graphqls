@@ -1,0 +1,20 @@
+
+
+type Query {
+    blogPage (
+        id: Int @doc(description: "The ID of the Blog page.") @deprecated(reason: "Use `identifier` instead.")
+        identifier: String @doc(description: "The identifier of the Blog page.")
+    ): BlogPage @resolver(class: "Questions\\Question4\\Model\\Resolver\\Blog") @doc(description: "Return details about a Blog page.") @cache(cacheIdentity: "Questions\\Question4\\Model\\Resolver\\Blog\\Identity")
+}
+
+type BlogPost  @doc(description: "Contains details about a Blog page.") {
+    identifier: String @doc(description: "The ID of a Blog page.")
+    url_key: String @doc(description: "The URL key of the Blog page, which is often based on the `content_heading`.")
+    title: String @doc(description: "The name that appears in the breadcrumb trail navigation and in the browser title bar and tab.")
+    content: String @doc(description: "The content of the Blog page in raw HTML.")
+    content_heading: String @doc(description: "The heading that displays at the top of the Blog page.")
+    page_layout: String @doc(description: "The design layout of the page, indicating the number of columns and navigation features used on the page.")
+    meta_title: String @doc(description: "A page title that is indexed by search engines and appears in search results listings.")
+    meta_description: String @doc(description: "A brief description of the page for search results listings.")
+    meta_keywords: String @doc(description: "A brief description of the page for search results listings.")
+}
